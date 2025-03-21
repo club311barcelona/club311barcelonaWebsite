@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { SupabaseClient, createClient } from '@supabase/supabase-js';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   Eye, EyeOff, Trash2, RefreshCw, Mail, User, MessageSquare, Calendar,
@@ -12,7 +12,7 @@ import {
 import { format, formatDistanceToNow } from 'date-fns';
 
 export default function MembershipRequestsPage() {
-  const [supabase, setSupabase] = useState(null);
+  const [supabase, setSupabase] = useState<SupabaseClient | null>(null);
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
