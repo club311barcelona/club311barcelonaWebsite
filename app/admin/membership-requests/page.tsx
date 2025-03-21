@@ -13,21 +13,21 @@ import { format, formatDistanceToNow } from 'date-fns';
 
 export default function MembershipRequestsPage() {
   const [supabase, setSupabase] = useState<SupabaseClient | null>(null);
-  const [requests, setRequests] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-  const [editingNote, setEditingNote] = useState(null);
-  const [newNote, setNewNote] = useState('');
-  const [filterStatus, setFilterStatus] = useState('all');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sortField, setSortField] = useState('created_at');
-  const [sortDirection, setSortDirection] = useState('desc');
-  const [selectedRequest, setSelectedRequest] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-  const [isRefreshing, setIsRefreshing] = useState(false);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [requests, setRequests] = useState<any[]>([]); // or use a more specific type
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [editingNote, setEditingNote] = useState<string | number | null>(null);
+  const [newNote, setNewNote] = useState<string>('');
+  const [filterStatus, setFilterStatus] = useState<string>('all');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [sortField, setSortField] = useState<string>('created_at');
+  const [sortDirection, setSortDirection] = useState<string>('desc');
+  const [selectedRequest, setSelectedRequest] = useState<any | null>(null); // or use a more specific type
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
 
   // Initialize Supabase client
   useEffect(() => {
