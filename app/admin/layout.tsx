@@ -15,7 +15,7 @@ import {
   Home 
 } from 'lucide-react';
 
-export default function AdminLayout({ children }) {
+export default function AdminLayout({ children }: { children: React.ReactNode }) {  
   const [supabase, setSupabase] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
