@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { 
@@ -16,16 +16,16 @@ import {
 } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {  
-  const [supabase, setSupabase] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [supabase, setSupabase] = useState<SupabaseClient | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   
   const router = useRouter();
   const pathname = usePathname();
-  const mobileMenuRef = useRef(null);
+  const mobileMenuRef = useRef<HTMLElement | null>(null);
   
   // Initialize Supabase client
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   // Simple password protection
   const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'club311admin';
   
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === adminPassword) {
       setIsLoggedIn(true);
@@ -62,8 +62,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   
   // Handle clicks outside mobile menu to close it
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setMobileMenuOpen(false);
       }
     }
@@ -194,7 +194,7 @@ const navigationItems = [
         {/* Sidebar - Desktop */}
         <aside className="hidden md:flex md:w-64 flex-col bg-gray-800 text-white shadow-lg">
           <div className="p-5 border-b border-gray-700">
-            <h1 className="text-xl font-bold text-white">
+          <h1 className="text-xl font-bold text-white">
               Club311 <span className="text-gold">Admin</span>
             </h1>
           </div>
@@ -232,7 +232,7 @@ const navigationItems = [
 
         {/* Mobile Menu - Sidebar */}
         <aside
-          ref={mobileMenuRef}
+          ref={mobileMenuRef as React.RefObject<HTMLElement>}
           className={`md:hidden fixed inset-y-0 left-0 z-50 w-64 bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out ${
             mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
