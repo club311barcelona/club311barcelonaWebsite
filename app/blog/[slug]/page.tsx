@@ -1,43 +1,61 @@
-import Image from "next/image"
-import { useEffect, useState } from "react"
-import Link from "next/link"
-import { Calendar, Clock, User, ArrowRight, ArrowLeft } from "lucide-react"
-import Navbar from "@/components/navbar"
-import { motion } from "framer-motion"
-import { GradientText } from "@/components/gradient-text"
-import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
-import { TouchRipple } from "@/components/touch-ripple"
-import Newsletter from "@/components/newsletter"
-import Footer from "@/components/footer"
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Calendar, Clock, User, ArrowRight, ArrowLeft } from "lucide-react";
+import Navbar from "@/components/navbar";
+import { motion } from "framer-motion";
+import { GradientText } from "@/components/gradient-text";
+import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal";
+import { TouchRipple } from "@/components/touch-ripple";
+import Newsletter from "@/components/newsletter";
+import Footer from "@/components/footer";
 
 // Import the blog posts data
-import blogPosts from "@/app/data/blogpostsarticles"
+import blogPosts from "@/app/data/blogpostsarticles";
 
-export async function generateMetadata({ params }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+// Define the type for the params object
+interface Params {
+  slug: string;
+}
+
+// Define the type for the blog post
+interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  author: string;
+  image: string;
+  content: string;
+  id: string;
+}
+
+export async function generateMetadata({ params }: { params: Params }) {
+  const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return {
       title: "Post Not Found | Club 311 Blog",
       description: "The requested blog post could not be found.",
-    }
+    };
   }
 
   return {
     title: `${post.title} | Club 311 Blog`,
     description: post.excerpt,
     keywords: `cannabis, Barcelona, social club, ${post.title.toLowerCase()}, Club 311`,
-  }
+  };
 }
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
-export default function BlogPostPage({ params }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+export default function BlogPostPage({ params }: { params: Params }) {
+  const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return (
@@ -51,7 +69,7 @@ export default function BlogPostPage({ params }) {
           </Link>
         </div>
       </main>
-    )
+    );
   }
 
   return (
@@ -161,8 +179,7 @@ export default function BlogPostPage({ params }) {
 
       <Newsletter />
 
-
       <Footer />
     </main>
-  )
+  );
 }

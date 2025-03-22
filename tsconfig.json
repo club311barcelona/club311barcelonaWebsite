@@ -1,32 +1,36 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5", // Keep this if you need to support older browsers
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "strict": true, // Enable all strict type-checking options
+    "noEmit": true, // Do not emit JavaScript files (Next.js handles this)
+    "esModuleInterop": true, // Enable compatibility with CommonJS modules
+    "module": "esnext", // Use ES modules
+    "moduleResolution": "bundler", // Use the bundler resolution strategy
+    "resolveJsonModule": true, // Allow importing JSON files
+    "isolatedModules": true, // Ensure each file can be transpiled independently
+    "jsx": "preserve", // Preserve JSX syntax (Next.js handles JSX)
+    "incremental": true, // Enable incremental compilation
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Use the Next.js TypeScript plugin
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+      "@/*": ["./*"] // Map @/* to the root directory
+    },
+    "baseUrl": ".", // Specify the base directory for path resolution
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
+    "noUnusedLocals": true, // Report unused local variables
+    "noUnusedParameters": true, // Report unused function parameters
+    "noImplicitReturns": true, // Ensure all code paths return a value
+    "noFallthroughCasesInSwitch": true // Prevent fallthrough in switch statements
   },
   "include": [
     "**/*.ts",
