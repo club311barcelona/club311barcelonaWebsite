@@ -9,11 +9,6 @@ import Footer from "@/components/footer";
 // Import the blog posts data
 import blogPosts from "@/app/data/blogpostsarticles";
 
-// Define the type for the params object
-interface Params {
-  slug: string;
-}
-
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
