@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Calendar, MapPin, Clock, ChevronRight, ChevronDown, Phone, Mail, 
-    Heart, Users, MessageCircle, Twitter, FileText, User, Facebook, Youtube, ArrowRight } from "lucide-react"
+import { Instagram, Calendar, MapPin, Clock, ChevronRight, ChevronDown, Phone, Mail,
+    Users, MessageCircle, Twitter, Facebook, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import TestimonialSlider from "@/components/testimonial-slider"
 import InstagramFeed from "@/components/instagram-feed"
@@ -12,7 +12,7 @@ import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
 import { MagneticButton } from "@/components/magnetic-button"
 import { GradientText } from "@/components/gradient-text"
 import { ParallaxText } from "@/components/parallax-text"
-import { useScroll, useTransform, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { Parallax } from "@/components/parallax"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
@@ -478,8 +478,7 @@ export default function HomePage() {
     <div className="mt-20 overflow-hidden">
       <EnhancedScrollReveal>
         <ParallaxText baseVelocity={-3}>
-          <span className="mr-6 text-gold">★</span> BARCELONA'S EXCLUSIVE CANNABIS SOCIAL CLUB 
-          <span className="ml-6 text-gold">★</span>
+          ★ BARCELONA'S EXCLUSIVE CANNABIS SOCIAL CLUB ★
         </ParallaxText>
       </EnhancedScrollReveal>
     </div>
@@ -936,7 +935,7 @@ export default function HomePage() {
         </section>
 
         {/* Contact Form Section */}
-        <section id="contact" className="relative bg-charcoal py-24 lg:py-32">
+        <section id="contact" ref={contactRef} className="relative bg-charcoal py-24 lg:py-32">
                 {/* Background effects */}
                 <div className="absolute inset-0 z-0 opacity-30">
                   <div className="h-full w-full bg-[url('/noise.png')] bg-repeat opacity-10"></div>
@@ -952,14 +951,16 @@ export default function HomePage() {
                 <div className="container relative z-10 mx-auto px-4">
                   <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {/* Contact Form */}
-                      <EnhancedScrollReveal animation="slide-right">
+                      <EnhancedScrollReveal animation="slide">
                         <div className="h-full">
-                          <ContactForm className="h-full" />
+                          <div className="h-full">
+                            <ContactForm />
+                          </div>
                         </div>
                       </EnhancedScrollReveal>
                       
                       {/* Contact Information */}
-                      <EnhancedScrollReveal animation="slide-left">
+                      <EnhancedScrollReveal animation="slide">
                         <div className="group h-full overflow-hidden rounded-2xl border border-white/5 p-0.5 backdrop-blur-sm">
                           <div className="relative h-full rounded-xl bg-black/20 p-6 md:p-8 overflow-hidden flex flex-col">
                             <h3 className="mb-6 font-playfair text-2xl font-bold text-white">Contact Information</h3>
@@ -1039,7 +1040,7 @@ export default function HomePage() {
                     width="100%" 
                     height="100%" 
                     className="border-0"
-                    allowFullScreen="" 
+                    allowFullScreen={true}
                     loading="lazy"
                     title="Club 311 Location"
                   ></iframe>
@@ -1080,6 +1081,9 @@ export default function HomePage() {
 
                 {/* CTA Section */}
                           <CTA />
+
+                {/* Newsletter Section */}
+                <Newsletter />          
 
                 {/* Footer */}
                 <Footer />

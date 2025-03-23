@@ -1,19 +1,28 @@
 
-import { useEffect, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { Calendar, Clock, User, ArrowRight, ChevronRight, Tag, Search } from "lucide-react"
+import { Calendar, Clock, User, ArrowRight, ChevronRight } from "lucide-react"
+import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
-import  motion  from "framer-motion"
+import Link from "next/link"
 import { GradientText } from "@/components/gradient-text"
-import { MagneticButton } from "@/components/magnetic-button"
 import { TouchRipple } from "@/components/touch-ripple"
-import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
 import Newsletter from "@/components/newsletter"
 import Footer from "@/components/footer"
 
 // Import blog posts data from the data file
 import blogPosts from "@/app/data/blogpostsarticles"
+
+interface BlogPost {
+  id: number
+  title: string
+  slug: string
+  image: string
+  category: string
+  date: string
+  readTime: string
+  author: string
+  excerpt: string
+}
 
 export const metadata = {
   title: "Blog | Club 311 - Private Cannabis Social Club in Barcelona",
@@ -139,7 +148,7 @@ export default function BlogPage() {
                   </p>
                   
                   <div className="flex justify-start">
-                  <button
+                  <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -150,7 +159,7 @@ export default function BlogPage() {
                       <span className="font-bold">Read Article </span>
                       <ChevronRight className="h-4 w-4" />
                     </Link>
-                  </button>
+                  </motion.button>
                 </div>
                 </div>
               </div>
@@ -176,7 +185,7 @@ export default function BlogPage() {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.slice(1).map((post) => (
+            {blogPosts.slice(1).map((post: BlogPost) => (
               <article
                 key={post.id}
                 className="group h-full overflow-hidden rounded-2xl border border-white/5 bg-black/20 backdrop-blur-sm transition-all duration-300 hover:border-gold/20"

@@ -1,12 +1,8 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Calendar, Clock, User, ArrowRight, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/navbar";
-import { motion } from "framer-motion";
 import { GradientText } from "@/components/gradient-text";
-import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal";
-import { TouchRipple } from "@/components/touch-ripple";
 import Newsletter from "@/components/newsletter";
 import Footer from "@/components/footer";
 
@@ -16,19 +12,6 @@ import blogPosts from "@/app/data/blogpostsarticles";
 // Define the type for the params object
 interface Params {
   slug: string;
-}
-
-// Define the type for the blog post
-interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  author: string;
-  image: string;
-  content: string;
-  id: string;
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
