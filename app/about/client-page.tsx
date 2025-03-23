@@ -2,13 +2,10 @@
 
 import { useRef } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { ChevronRight, ChevronDown, ArrowRight } from "lucide-react"
 import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
-import { MagneticButton } from "@/components/magnetic-button"
 import { GradientText } from "@/components/gradient-text"
-import { HoverCard } from "@/components/hover-card"
 import { TouchRipple } from "@/components/touch-ripple"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"

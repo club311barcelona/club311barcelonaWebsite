@@ -2,15 +2,12 @@
 
 import { useRef } from "react" // Added useRef import
 import Image from "next/image"
-import Link from "next/link"
-import { MapPin, Clock, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowRight, ChevronRight, ChevronDown, Send, User, Users } from "lucide-react"
+import { MapPin, Clock, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ChevronDown } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
 import { motion } from "framer-motion"
 import { GradientText } from "@/components/gradient-text"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
 import { TouchRipple } from "@/components/touch-ripple"
 import Newsletter from "@/components/newsletter"
 import { ContactForm } from "@/components/ui/contact-form"
