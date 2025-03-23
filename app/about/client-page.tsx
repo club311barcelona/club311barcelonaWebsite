@@ -9,7 +9,7 @@ import { GradientText } from "@/components/gradient-text"
 import { TouchRipple } from "@/components/touch-ripple"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { Button } from "@/components/ui/button"
+
 
 export const metadata = {
   title: "About Us | Club 311 - Private Cannabis Social Club in Barcelona",
