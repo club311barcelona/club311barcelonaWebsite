@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { MapPin, Clock, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ChevronRight,  ChevronDown, ChevronUp, Send, User, Users, Calendar } from "lucide-react"
+import { MapPin, Clock, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ChevronRight,  ChevronDown, Calendar } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
@@ -18,11 +18,8 @@ import EventsGrid from '@/components/EventsGrid';
 
 
 
-// Event categories for filtering
-const categories = ["All", "Weekly", "Music", "Social", "Educational", "Wellness"]
-
 const EventsPageClient = () => {
-  const eventsRef = useRef(null);
+  const eventsRef = useRef<HTMLDivElement>(null);
 
 
   return (
@@ -223,14 +220,16 @@ const EventsPageClient = () => {
                   <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     
                     {/* Contact Form */}
-                      <EnhancedScrollReveal animation="slide-right">
+                      <EnhancedScrollReveal animation="slide" direction="right">
                         <div className="h-full">
-                          <ContactForm className="h-full" />
+                          <div className="h-full">
+                            <ContactForm />
+                          </div>
                         </div>
                       </EnhancedScrollReveal>
                       
                       {/* Contact Information */}
-                      <EnhancedScrollReveal animation="slide-left">
+                      <EnhancedScrollReveal animation="slide" direction="left">
                         <div className="group h-full overflow-hidden rounded-2xl border border-white/5 p-0.5 backdrop-blur-sm">
                           <div className="relative h-full rounded-xl bg-black/20 p-6 md:p-8 overflow-hidden flex flex-col">
                             <h3 className="mb-6 font-playfair text-2xl font-bold text-white">Contact Information</h3>
@@ -310,7 +309,7 @@ const EventsPageClient = () => {
                     width="100%" 
                     height="100%" 
                     className="border-0"
-                    allowFullScreen="" 
+                    allowFullScreen={true}
                     loading="lazy"
                     title="Club 311 Location"
                   ></iframe>

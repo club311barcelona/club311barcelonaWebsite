@@ -15,7 +15,7 @@ import { ContactForm } from "@/components/ui/contact-form"
   
 export default function ContactPage() {
   // Added contactFormRef definition
-  const contactFormRef = useRef(null);
+  const contactFormRef = useRef<HTMLDivElement>(null);
 
   return (
     <main className="min-h-screen bg-charcoal text-white">
@@ -99,14 +99,16 @@ export default function ContactPage() {
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Form */}
-            <EnhancedScrollReveal animation="slide-right">
+            <EnhancedScrollReveal animation="slide" direction="right">
               <div className="h-full">
-                <ContactForm className="h-full" />
+                <div className="h-full">
+                  <ContactForm />
+                </div>
               </div>
             </EnhancedScrollReveal>
             
             {/* Contact Information */}
-            <EnhancedScrollReveal animation="slide-left">
+            <EnhancedScrollReveal animation="slide" direction="left">
               <div className="group h-full overflow-hidden rounded-2xl border border-white/5 p-0.5 backdrop-blur-sm">
                 <div className="relative h-full rounded-xl bg-black/20 p-6 md:p-8 overflow-hidden flex flex-col">
                   <h3 className="mb-6 font-playfair text-2xl font-bold text-white">Contact Information</h3>
@@ -187,7 +189,7 @@ export default function ContactPage() {
                   width="100%" 
                   height="100%" 
                   className="border-0"
-                  allowFullScreen="" 
+                  allowFullScreen={true}
                   loading="lazy"
                   title="Club 311 Location"
                 ></iframe>
