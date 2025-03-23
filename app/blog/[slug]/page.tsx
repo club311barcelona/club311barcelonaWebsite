@@ -14,11 +14,7 @@ interface Params {
   slug: string;
 }
 
-interface PageProps {
-  params: Params;
-}
-
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: { params: Params }) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -41,7 +37,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: PageProps) {
+export default function BlogPostPage({ params }: { params: Params }) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
