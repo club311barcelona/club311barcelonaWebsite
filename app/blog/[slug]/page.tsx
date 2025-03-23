@@ -9,7 +9,11 @@ import Footer from "@/components/footer";
 // Import the blog posts data
 import blogPosts from "@/app/data/blogpostsarticles";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -32,7 +36,11 @@ export function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
