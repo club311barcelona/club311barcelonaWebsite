@@ -73,7 +73,7 @@ export default function HomePage() {
           className="mb-3 inline-block"
         >
           <div className="rounded-full border border-gold/30 bg-black/30 px-3 py-1 backdrop-blur-sm">
-            <span className="text-xs font-medium uppercase tracking-wider text-gold">Est. 2018</span>
+            <span className="text-xs font-medium uppercase tracking-wider text-gold">Since 2018</span>
           </div>
         </motion.div>
         
@@ -88,10 +88,19 @@ export default function HomePage() {
 
         {/* Two-part approach for paragraph: static + animated overlay */}
 <div className="relative">
-  {/* Static paragraph that loads immediately for LCP - VISIBLE but with no styling */}
-  <p className="mb-4 max-w-md text-base leading-relaxed text-white/80 absolute inset-0 pointer-events-none" style={{ zIndex: -1 }}>
-    Nestled near Sagrada Familia, Club 311 Barcelona offers a sophisticated sanctuary with premium selections and refined ambiance—where quality and community converge in Barcelona's premier cannabis association.
-  </p>
+  {/* Static paragraph that loads immediately for LCP - INVISIBLE */}
+<p 
+  className="absolute opacity-0 overflow-hidden w-0 h-0" 
+  aria-hidden="true"
+  style={{ 
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    position: 'absolute',
+    whiteSpace: 'nowrap'
+  }}
+>
+  Tucked away near the city's most iconic sights, we invite you to experience an intimate social space designed for connection, relaxation, and unforgettable experiences
+</p>
   
   {/* Animated overlay that creates the animation effect */}
   <motion.div
@@ -105,8 +114,7 @@ export default function HomePage() {
     className="mb-4 max-w-md"
   >
     <p className="text-base leading-relaxed text-white/80">
-      Nestled near Sagrada Familia, Club 311 Barcelona offers a sophisticated sanctuary with premium selections and refined ambiance—where quality and community converge in Barcelona's premier cannabis association.
-    </p>
+    Tucked away near the city’s most iconic sights, we invite you to experience an intimate social space designed for connection, relaxation, and unforgettable experiences    </p>
   </motion.div>
 </div>
 
@@ -1003,7 +1011,7 @@ export default function HomePage() {
                                 </div>
                                 <div>
                                   <h4 className="text-lg font-medium text-white">Email</h4>
-                                  <p className="mt-1 text-white/70">info@club311.com</p>
+                                  <p className="mt-1 text-white/70">info.club311@gmail.com</p>
                                 </div>
                               </div>
                             </div>
@@ -1013,9 +1021,6 @@ export default function HomePage() {
                               <div className="flex space-x-4">
                                 <a href="https://www.instagram.com/club_311/" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors duration-300 hover:bg-gold/20 hover:text-gold">
                                   <Instagram className="h-5 w-5" />
-                                </a>
-                                <a href="https://www.instagram.com/club_311/" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors duration-300 hover:bg-gold/20 hover:text-gold">
-                                  <Facebook className="h-5 w-5" />
                                 </a>
                                 <a href="https://www.instagram.com/club_311/" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors duration-300 hover:bg-gold/20 hover:text-gold">
                                   <Twitter className="h-5 w-5" />

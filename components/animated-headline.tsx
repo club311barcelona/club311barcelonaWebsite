@@ -31,13 +31,13 @@ export function AnimatedHeadline() {
           className="font-playfair text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
           variants={item}
         >
-          <span className="block">Barcelona's Premier</span>
+          <span className="block">Club 311 Barcelona :</span>
         </motion.h2>
       </div>
 
       <div className="overflow-hidden">
         <motion.h2 className="font-playfair text-4xl font-bold leading-tight md:text-5xl lg:text-6xl" variants={item}>
-          <GradientText>Cannabis Social Club</GradientText>
+          <GradientText>Premier Social Club</GradientText>
         </motion.h2>
       </div>
 
@@ -46,7 +46,7 @@ export function AnimatedHeadline() {
           className="font-playfair text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
           variants={item}
         >
-          <span className="block">Your Private Sanctuary</span>
+          <span className="block">Near Sagrada Família</span>
         </motion.h2>
       </div>
     </motion.div>

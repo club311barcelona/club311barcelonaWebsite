@@ -233,7 +233,7 @@ return (
     className="rounded-2xl bg-black/30 p-8 backdrop-blur-md border border-gold/20 shadow-lg"
   >
     <h3 className="mb-2 font-playfair text-2xl font-bold text-white">Become a Member</h3>
-    <p className="mb-6 text-sm text-white/70">Join Barcelona's most exclusive cannabis social club</p>
+    <p className="mb-6 text-sm text-white/70">Request an invitation to our private association in Barcelona</p>
     
     {submitError && (
       <motion.div
@@ -480,7 +480,7 @@ return (
     </div>
     <div className="ml-3 text-sm">
       <label htmlFor="acceptTerms" className="text-white/80">
-        I confirm I am over 21 and agree to the <a href="/terms" className="text-gold hover:underline">terms and conditions</a>
+        I confirm I am over 21 and agree to the <a href="/" className="text-gold hover:underline">terms and conditions</a>
       </label>
     </div>
   </div>
@@ -534,7 +534,7 @@ return (
                 </>
               ) : (
                 <>
-                  Submit Application
+                  Get My Invitation
                   <Shield className="ml-2 h-4 w-4" />
                 </>
               )}
