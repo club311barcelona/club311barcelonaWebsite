@@ -20,7 +20,7 @@ export function EnhancedScrollReveal({
 }: EnhancedScrollRevealProps) {
   const controls = useAnimation()
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once, threshold })
+  const isInView = useInView(ref, { once, amount: threshold })
   const isMobile = useMediaQuery("(max-width: 768px)")
   const [hasAnimated, setHasAnimated] = useState(false)
 
@@ -177,7 +177,7 @@ export function EnhancedScrollReveal({
       // Check if children is a string
       if (typeof children === "string") {
         return (
-          <motion.div ref={ref} initial="hidden" animate={controls} variants={getVariants()} className={className}>
+          <motion.div ref={ref} initial="hidden" animate={controls} variants={getVariants()} className={className} style={{ position: 'relative' }}>
             {children.split(" ").map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
                 <motion.span className="inline-block" variants={textRevealVariants}>
@@ -203,7 +203,7 @@ export function EnhancedScrollReveal({
   // For stagger animation, we need to wrap each child
   if (animation === "stagger") {
     return (
-      <motion.div ref={ref} initial="hidden" animate={controls} variants={getVariants()} className={className}>
+      <motion.div ref={ref} initial="hidden" animate={controls} variants={getVariants()} className={className} style={{ position: 'relative' }}>
         {React.Children.map(children, (child, i) => (
           <motion.div key={i} variants={childVariants}>
             {child}

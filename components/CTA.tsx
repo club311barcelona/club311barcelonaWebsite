@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
 import { GradientText } from "@/components/gradient-text"

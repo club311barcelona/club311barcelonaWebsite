@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import { Playfair_Display, Montserrat, Open_Sans } from "next/font/google"
 import "./globals.css"
-import { Cursor } from "@/components/cursor"
-import { AgeVerification, NoJsAgeVerification } from "@/components/age-verification"
+import { AgeVerification } from "@/components/age-verification"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Club 311 Barcelona",
     images: [
       {
-        url: "/og-image.jpg", // Add a proper OG image here
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Club 311 - Private Cannabis Social Club in Barcelona",
@@ -62,15 +61,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Fix: Use Next.js proper head handling instead of manually adding a head tag
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable} ${openSans.variable}`}>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${montserrat.variable} ${openSans.variable}`}
+      suppressHydrationWarning={true}
+    >
       <body suppressHydrationWarning={true}>
         <AgeVerification />
         <main>{children}</main>
-        <Cursor />
         <noscript>
-          <NoJsAgeVerification />
+          JavaScript is required for the best experience on this site.
         </noscript>
       </body>
     </html>

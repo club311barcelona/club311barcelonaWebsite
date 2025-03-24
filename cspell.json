@@ -2,14 +2,23 @@
   "version": "0.2",
   "language": "en",
   "words": [
-    "supabase",
-    "Sagrada",
-    "Carrer",
-    "Lepant",
-    "L'Eixample",
-    "blogpostsarticles",
-    "Weedza",
-    "SPANNABIS",
-    "FOUT"
+      "blogpostsarticles",
+      "Carrer",
+      "FOUT",
+      "L'Eixample",
+      "Lepant",
+      "playfair",
+      "Sagrada",
+      "SPANNABIS",
+      "supabase",
+      "Weedza",
+      "Burkina",
+      "Faso",
+      "Cabo",
+      "Rica",
+      "Eswatini",
+      "Kitts",
+      "Marino",
+      "Leste"
   ]
 }

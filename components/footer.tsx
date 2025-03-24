@@ -18,7 +18,7 @@ export default function Footer() {
             <p className="text-center text-sm text-white/60 md:text-left">
               &copy; {new Date().getFullYear()} Club 311. All rights reserved.
               <br />
-              This is a private members club. You must be 18+ and a member to enter.
+              This is a private members club. You must be 21+ and a member to enter.
             </p>
           </div>
           <div className="flex flex-col items-center gap-4 md:items-end">
@@ -50,10 +50,10 @@ export default function Footer() {
               </Link>
             </nav>
             <div className="mt-2 flex gap-6">
-              <Link href="/privacy-policy" className="text-xs text-white/40 transition-colors hover:text-gold">
+              <Link href="/" className="text-xs text-white/40 transition-colors hover:text-gold">
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="text-xs text-white/40 transition-colors hover:text-gold">
+              <Link href="/" className="text-xs text-white/40 transition-colors hover:text-gold">
                 Terms of Service
               </Link>
             </div>

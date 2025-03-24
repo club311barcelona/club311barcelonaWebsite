@@ -10,7 +10,6 @@ import { MobileMenu } from "@/components/mobile-menu"
 import { useMediaQuery } from "@/hooks/use-media-query"
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const pathname = usePathname()
   const navRef = useRef<HTMLDivElement>(null)
@@ -35,7 +34,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
-      setIsScrolled(scrollPosition > 10)
 
       // Animate navbar based on scroll position
       if (scrollPosition > 10) {

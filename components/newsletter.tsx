@@ -1,9 +1,8 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+
 import { GradientText } from "@/components/gradient-text"
-import  { motion }  from "framer-motion"  // Corrected import
+import  { motion }  from "framer-motion"  
 import { TouchRipple } from "@/components/touch-ripple"
 import { Mail } from "lucide-react"
 

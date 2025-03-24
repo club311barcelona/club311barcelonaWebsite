@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Check, AlertCircle, User, Mail, MessageSquare, Send } from "lucide-react"
 import { useForm } from "react-hook-form"
@@ -20,8 +20,7 @@ type FormData = z.infer<typeof formSchema>;
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const firstInputRef = useRef<HTMLInputElement>(null)
-  
+   
   // React Hook Form
   const {
     register,
@@ -37,11 +36,12 @@ export function ContactForm() {
       message: ""
     }
   })
-  
+   
   // Focus first field on mount
   useEffect(() => {
-    if (firstInputRef.current) {
-      firstInputRef.current.focus()
+    const nameInput = document.getElementById('name') as HTMLInputElement
+    if (nameInput) {
+      nameInput.focus()
     }
   }, [])
   
@@ -165,7 +165,6 @@ const onSubmit = async (data: FormData) => {
           <div className="relative">
             <input
               id="name"
-              ref={firstInputRef}
               type="text"
               placeholder="Your full name"
               className={`w-full rounded-md border ${

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, User, ArrowRight, ArrowLeft } from "lucide-react";
@@ -9,11 +10,7 @@ import Footer from "@/components/footer";
 // Import the blog posts data
 import blogPosts from "@/app/data/blogpostsarticles";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata({ params }) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -30,17 +27,14 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function BlogPostPage({ params }) {
+  // All TypeScript type annotations removed
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -58,6 +52,7 @@ export default async function BlogPostPage({
     );
   }
 
+  // The rest of your JSX remains exactly the same
   return (
     <main className="min-h-screen bg-charcoal text-white">
       <Navbar />
