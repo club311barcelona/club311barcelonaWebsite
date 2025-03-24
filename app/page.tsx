@@ -4,7 +4,7 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Instagram, Calendar, MapPin, Clock, ChevronRight, ChevronDown, Phone, Mail,
-    Users, MessageCircle, Twitter, Facebook, Youtube } from "lucide-react"
+    Users, MessageCircle, Twitter,  Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import TestimonialSlider from "@/components/testimonial-slider"
 import InstagramFeed from "@/components/instagram-feed"
