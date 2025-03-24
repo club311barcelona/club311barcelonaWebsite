@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ChevronRight, ChevronDown, ArrowRight } from "lucide-react"
+import { ChevronRight, ChevronDown } from "lucide-react"
 import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
 import { GradientText } from "@/components/gradient-text"
 import { TouchRipple } from "@/components/touch-ripple"
