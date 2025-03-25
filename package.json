@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "npm run build && cp -r public .next/standalone/public",
+    "vercel-build": "npm install @next/swc-darwin-x64 @next/swc-linux-x64-gnu @next/swc-win32-x64-msvc && next build && cp -r public .next/standalone/public",
     "clean": "rimraf .next out node_modules"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^3.9.1",
     "@motionone/utils": "latest",
+    "@next/swc-win32-x64-msvc": "^15.2.4",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
     "@radix-ui/react-aspect-ratio": "^1.1.1",
@@ -79,9 +80,12 @@
   },
   "resolutions": {
     "critters": "github:danielroe/beasties",
-    "@emnapi/runtime": "0.0.0"
-},
+    "@emnapi/runtime": "0.0.0",
+    "@next/swc-darwin-x64": "npm:@next/swc-win32-x64-msvc",
+    "@next/swc-linux-x64-gnu": "npm:@next/swc-win32-x64-msvc"
+  },
+  
   "overrides": {
     "@emnapi/runtime": "0.0.0"
-}
+  }
 }

@@ -6,7 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "module": "Node16", // Changed from "esnext" to match moduleResolution
+    "module": "esnext", // Changed from "esnext" to match moduleResolution
     "moduleResolution": "Node16",
     "allowJs": true,
     "skipLibCheck": true,
@@ -33,7 +33,7 @@
       }
     ],
     // New recommended settings for Next.js 15
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "allowImportingTsExtensions": true
   },
   "include": [

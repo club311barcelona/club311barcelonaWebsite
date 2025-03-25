@@ -19,7 +19,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
 
-  // Server Configuration (moved from experimental)
+  // Server Configuration
   serverExternalPackages: ['@supabase/supabase-js'],
 
   // Experimental Features
@@ -27,26 +27,33 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     scrollRestoration: true,
-    typedRoutes: true,
+    forceSwcTransforms: true
+  },
+
+  // Webpack Configuration
+  webpack: (config) => {
+    config.externals = [...(config.externals || []), '@swc/core'];
+    return config;
   },
 
   // Compiler Options
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
-    } : false,
+    } : false
   },
 
+  // Modular Imports
   modularizeImports: {
     'lucide-react': {
-      transform: 'lucide-react/dist/esm/icons/{{member}}',
-    },
+      transform: 'lucide-react/dist/esm/icons/{{member}}'
+    }
   },
 
   poweredByHeader: false,
   
   generateBuildId: async () => {
-    return process.env.VERCEL_GIT_COMMIT_SHA || Date.now().toString()
+    return process.env.VERCEL_GIT_COMMIT_SHA || Date.now().toString();
   }
 };
 
