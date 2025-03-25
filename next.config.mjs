@@ -2,48 +2,52 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Change build directory to avoid permission issues
-  distDir: 'build',
+  // Deployment Configuration
+  output: 'standalone',
+  distDir: process.env.VERCEL ? '.next' : 'build',
   
-  // Image optimization
+  // Image Optimization
   images: {
-    domains: [
-      // Your domains here
-    ],
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
-    // Optimize image sizes
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
-  
-  // Experimental features - updated for Next.js 15.2.1
+
+  // Server Configuration (moved from experimental)
+  serverExternalPackages: ['@supabase/supabase-js'],
+
+  // Experimental Features
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     scrollRestoration: true,
+    typedRoutes: true,
   },
-  
-  // Compiler optimizations
+
+  // Compiler Options
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
     } : false,
   },
-  
-  // Reduce bundle size
+
   modularizeImports: {
     'lucide-react': {
       transform: 'lucide-react/dist/esm/icons/{{member}}',
     },
   },
-  
-  // Remove powered by header
+
   poweredByHeader: false,
+  
+  generateBuildId: async () => {
+    return process.env.VERCEL_GIT_COMMIT_SHA || Date.now().toString()
+  }
 };
 
 export default nextConfig;

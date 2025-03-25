@@ -1,36 +1,40 @@
 {
   "compilerOptions": {
-    "target": "es5", // Keep this if you need to support older browsers
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true, // Allow JavaScript files to be compiled
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "strict": true, // Enable all strict type-checking options
-    "noEmit": true, // Do not emit JavaScript files (Next.js handles this)
-    "esModuleInterop": true, // Enable compatibility with CommonJS modules
-    "module": "esnext", // Use ES modules
-    "moduleResolution": "bundler", // Use the bundler resolution strategy
-    "resolveJsonModule": true, // Allow importing JSON files
-    "isolatedModules": true, // Ensure each file can be transpiled independently
-    "jsx": "preserve", // Preserve JSX syntax (Next.js handles JSX)
-    "incremental": true, // Enable incremental compilation
+    "module": "Node16", // Changed from "esnext" to match moduleResolution
+    "moduleResolution": "Node16",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "node"
+    ],
     "plugins": [
       {
-        "name": "next" // Use the Next.js TypeScript plugin
+        "name": "next"
       }
     ],
-    "paths": {
-      "@/*": ["./*"] // Map @/* to the root directory
-    },
-    "baseUrl": ".", // Specify the base directory for path resolution
-    "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
-    "noUnusedLocals": true, // Report unused local variables
-    "noUnusedParameters": true, // Report unused function parameters
-    "noImplicitReturns": true, // Ensure all code paths return a value
-    "noFallthroughCasesInSwitch": true // Prevent fallthrough in switch statements
+    // New recommended settings for Next.js 15
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true
   },
   "include": [
     "**/*.ts",
@@ -40,6 +44,8 @@
     "build/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/dist/*",
+    "**/.next/cache/**"
   ]
 }
