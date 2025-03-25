@@ -29,7 +29,8 @@
     ],
     "plugins": [
       {
-        "name": "next"
+        "name": "next",
+        "optimizeForLintPerformance": true
       }
     ],
     // New recommended settings for Next.js 15
