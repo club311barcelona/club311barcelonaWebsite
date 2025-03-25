@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import Image from "next/image"
+import Image from "next/legacy/image";
 import { motion } from "framer-motion"
 import { ChevronRight, ChevronDown } from "lucide-react"
 import { EnhancedScrollReveal } from "@/components/enhanced-scroll-reveal"
