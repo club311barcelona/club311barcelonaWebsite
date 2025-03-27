@@ -3,8 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   
   // Deployment Configuration
-  output: 'standalone',
-  distDir: process.env.VERCEL ? '.next' : 'build',
+  distDir: '.next',
   
   // Image Optimization
   images: {
@@ -22,19 +21,6 @@ const nextConfig = {
   // Server Configuration
   serverExternalPackages: ['@supabase/supabase-js'],
 
-  // Experimental Features
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['framer-motion', 'lucide-react'],
-    scrollRestoration: true,
-    forceSwcTransforms: true
-  },
-
-  // Webpack Configuration
-  webpack: (config) => {
-    config.externals = [...(config.externals || []), '@swc/core'];
-    return config;
-  },
 
   // Compiler Options
   compiler: {

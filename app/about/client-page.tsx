@@ -59,7 +59,7 @@ export default function AboutPage() {
           <Image
             src="/Images/about/HeroImage-LoungeArea1-Club311.jpg"
             alt="Club 311 Interior"
-            fill
+            layout='fill'
             className="object-cover opacity-30"
             priority
           />
@@ -171,7 +171,7 @@ export default function AboutPage() {
                   <Image
                     src="/Images/about/Club311BarcelonaEntrance.jpg"
                     alt="Club 311 Interior"
-                    fill
+                    layout='fill'
                     className="object-cover transition-transform duration-700 hover:scale-105"
                   />
                   
@@ -532,7 +532,7 @@ export default function AboutPage() {
                   <Image
                     src="/Images/about/LoungeArea3-Club311.jpg"
                     alt="Club 311 Lounge Area"
-                    fill
+                    layout='fill'
                     className="object-cover transition-transform duration-700 hover:scale-105"
                   />
                   
@@ -564,7 +564,7 @@ export default function AboutPage() {
                   <Image
                     src="/Images/about/GameTableArea-Club311.jpg"
                     alt="Club 311 Entertainment Area"
-                    fill
+                    layout='fill'
                     className="object-cover transition-transform duration-700 hover:scale-105"
                   />
                   
@@ -596,7 +596,7 @@ export default function AboutPage() {
                   <Image
                     src="/Images/about/LoungeArea2-Club311.jpg"
                     alt="Club 311 Product Display"
-                    fill
+                    layout='fill'
                     className="object-cover transition-transform duration-700 hover:scale-105"
                   />
                   

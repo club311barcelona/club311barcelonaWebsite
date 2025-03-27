@@ -1,10 +1,17 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function AgeVerification() {
+  const pathname = usePathname()
+  
+  // Skip verification for admin routes
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
   const [isVerified, setIsVerified] = useState(false)
 
   useEffect(() => {
