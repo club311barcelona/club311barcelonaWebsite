@@ -11,6 +11,7 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
   const navRef = useRef<HTMLDivElement>(null)
   const controls = useAnimation()
@@ -33,6 +34,8 @@ export default function Navbar() {
   // Handle scroll events in a separate effect
   useEffect(() => {
     const handleScroll = () => {
+      if (!mounted) return
+      
       const scrollPosition = window.scrollY
 
       // Animate navbar based on scroll position

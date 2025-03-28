@@ -9,7 +9,7 @@ Club311Barcelona is a modern web application built with Next.js, React, and Tail
 - Content management through Next.js pages
 
 ## Technology Stack
-- **Framework**: Next.js 15
+- **Framework**: Next.js 15.2.4
 - **Styling**: Tailwind CSS with animations
 - **UI Components**: Radix UI, Framer Motion, Lucide Icons
 - **State Management**: React Hook Form, Zod for validation
